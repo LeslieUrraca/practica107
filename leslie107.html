@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Ejemplo de JavaScript</title>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<div>
+<button id="boton1">Peinado</button>
+<button id="boton2">Maquillaje</button>
+<button id="boton3">Uñas</button>
+</div>
+<div id="contenido"></div>
+
+</div>
+<script>
+addEventListener("DOMContentLoaded", () => {
+document.getElementById("boton1").addEventListener("click", () => mostrar('Peinado.txt'));
+document.getElementById("boton2").addEventListener("click", () => mostrar('Maquillaje.txt'));
+document.getElementById("boton3").addEventListener("click", () => mostrar('Uñas.txt'));
+});
+
+function mostrar(signo) {
+fetch(signo)
+.then(response => response.text())
+.then(datos => document.getElementById("contenido").innerText = datos);
+}
+
+</script>
+
+</body>
+
+</html>
